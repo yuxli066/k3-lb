@@ -17,4 +17,14 @@ spec:
             name: recipe-service
             port:
               number: 50150
+  - host: "api.delrosamassage.co"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: massage-service
+            port:
+              number: 65535
   ingressClassName: nginx
