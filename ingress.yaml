@@ -10,6 +10,7 @@ spec:
     - hosts:
         - api.asianmomrecipes.com
         - api.delrosamassage.co
+        - api.autoapply.com
       secretName: letsencrypt-nginx
   rules:
   - host: "api.asianmomrecipes.com"
@@ -32,4 +33,14 @@ spec:
             name: massage-service
             port:
               number: 65535
+  - host: "api.autoapply.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: autoapply-service
+            port:
+              number: 65534
   ingressClassName: nginx
